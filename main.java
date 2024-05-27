@@ -33,22 +33,22 @@
 
 //         int[] array2 = new int[7]; // prima cosa da fare è creare un nuovo array per inserire i numeri
 
-       // ! per prendere i numeri pari
+// ! per prendere i numeri pari
 //         int posPari = 0; // nuova variabile per inserire l'indice ed utilizzarlo poi per inserirlo
-                          // nell'array nuovo
+// nell'array nuovo
 //         for (int i = 0; i < array.length; i++) {
 //             if (array[i] % 2 == 0) {
 //                 array2[posPari] = array[i]; // al posto inserito aggiungi l'elemento, in qujesto caso si parte da 0 al
-                                             // posto zero inserisci l'elemento ossia il numero pari
+// posto zero inserisci l'elemento ossia il numero pari
 //                 posPari++; // incrementiamo la cella per dire che il posto successivo è libero per inserire
-                            // il prossimo numero pari
+// il prossimo numero pari
 //             }
 //         }
 
-         // ! per prendere i numeri dispari
+// ! per prendere i numeri dispari
 //         int posDispari = posPari; // la posizione dispari non deve partire da 0 ma dall aposizione pari perchè
-                                   // come dice la traccia prima i pari e poi i dispari e quindi devono seguire
-                                   // l'indice dato dai pari
+// come dice la traccia prima i pari e poi i dispari e quindi devono seguire
+// l'indice dato dai pari
 //         for (int i = 0; i < array2.length; i++) {
 //             if (array[i] % 2 == 1) {
 //                 array2[posDispari] = array[i];
@@ -62,7 +62,6 @@
 
 //     }
 // }
-
 
 //! esercizio 3 - secondo modo per svolgere l'esercizio 2 - cioè usare lo stesso array per memorizzare
 //! prima i numeri pari e poi dispari però questa volta non costruendo un nuovo array
@@ -97,43 +96,73 @@
 //Scrivete un programma Java per trovare il più piccolo e il secondo più piccolo 
 //elemento di un dato array
 
+// public class main {
+
+//     public static void main(String[] args) {
+//         int[] array = {10,3,12,13,1};
+
+//         int min = array[0];  // in questo caso non partiamo da 0 ma dal primo elemento
+//         int indexMin = 0;
+
+//         //! troviamo il più piccolo
+//         for (int i = 1; i < array.length; i++) {
+//             if (array[i] < min) {
+//                 min = array[i];
+//                 indexMin = i;
+
+//             }
+
+//         }
+
+//         int minSecondo = 0;
+
+//         for (int i = 0; i < array.length; i++) {
+//             if (array[i] != min) {
+//                 minSecondo = array[i];
+//             }
+//         }
+
+// //! troviamo il secondo più piccolo
+//         for (int i = 1; i < array.length; i++) {
+//             if (array[i] < minSecondo && array[i] != min) {
+//                 minSecondo = array[i];
+//             }
+//         }
+
+//         System.out.println("il minimo è:" + min);
+//         System.out.println("il secondo è:" + minSecondo);
+
+//     }
+// }
+
+//! esercizio 5
+
+//Scrivete un programma Java per visualizzare il triangolo di Pascal
+
 public class main {
 
     public static void main(String[] args) {
-        int[] array = {10,3,12,13,1};
+        int n = 5;
+        int[][] matrix = new int[n][n]; // matrice
 
-        int min = array[0];  // in questo caso non partiamo da 0 ma dal primo elemento
-        int indexMin = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j <= i; j++) {
+                if (j == 0 || j == i ) {
+                    matrix[i][j]=1;
+                } else {
+                    int tmp = matrix[i - 1][j - 1] + matrix[i - 1][j];
+                    matrix[i][j]=tmp;
+                }
 
-        //! troviamo il più piccolo
-        for (int i = 1; i < array.length; i++) {
-            if (array[i] < min) {
-                min = array[i];
-                indexMin = i;
-                
             }
-            
+         
+
         }
-        
-
-
-        int minSecondo = 0;
-
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] != min) {
-                minSecondo = array[i];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(matrix[i][j]);
             }
+            System.out.println("");
         }
-
-//! troviamo il secondo più piccolo
-        for (int i = 1; i < array.length; i++) {
-            if (array[i] < minSecondo && array[i] != min) {
-                minSecondo = array[i];
-            }
-        }
-
-        System.out.println("il minimo è:" + min);
-        System.out.println("il secondo è:" + minSecondo);
-        
     }
 }
