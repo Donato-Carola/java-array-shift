@@ -70,24 +70,70 @@
 //Scrivere un programma Java per separare i numeri pari e dispari di un dato array di numeri interi
 //Mettere prima tutti i numeri pari e poi i numeri dispari 
 
+// public class main {
+
+//     public static void main(String[] args) {
+//         int[] array = {1,3,46,89,90,4,3,2,7,8};
+
+//         for (int i = 0; i < array.length; i++) {
+//             if (array[i] % 2 != 0) {
+//                 for (int j = i+1; j < array.length; j++) {
+//                     if (array[j] % 2 == 0) {
+//                         int varTemporanea = array[i];
+//                         array[i] = array[j];
+//                         array[j] = varTemporanea;
+//                     }
+//                 }
+//             }
+//         }
+//         for (int i = 0; i < array.length; i++) {
+//             System.out.println(array[i]);
+//         }
+//     }
+// }
+
+//! esercizio 4
+
+//Scrivete un programma Java per trovare il più piccolo e il secondo più piccolo 
+//elemento di un dato array
+
 public class main {
 
     public static void main(String[] args) {
-        int[] array = {1,3,46,89,90,4,3,2,7,8};
+        int[] array = {10,3,12,13,1};
+
+        int min = array[0];  // in questo caso non partiamo da 0 ma dal primo elemento
+        int indexMin = 0;
+
+        //! troviamo il più piccolo
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] < min) {
+                min = array[i];
+                indexMin = i;
+                
+            }
+            
+        }
+        
+
+
+        int minSecondo = 0;
 
         for (int i = 0; i < array.length; i++) {
-            if (array[i] % 2 != 0) {
-                for (int j = i+1; j < array.length; j++) {
-                    if (array[j] % 2 == 0) {
-                        int varTemporanea = array[i];
-                        array[i] = array[j];
-                        array[j] = varTemporanea;
-                    }
-                }
+            if (array[i] != min) {
+                minSecondo = array[i];
             }
         }
-        for (int i = 0; i < array.length; i++) {
-            System.out.println(array[i]);
+
+//! troviamo il secondo più piccolo
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] < minSecondo && array[i] != min) {
+                minSecondo = array[i];
+            }
         }
+
+        System.out.println("il minimo è:" + min);
+        System.out.println("il secondo è:" + minSecondo);
+        
     }
 }
