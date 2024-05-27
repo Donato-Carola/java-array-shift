@@ -22,4 +22,43 @@
 //     }
 // }
 
+//! esercizio 2
 
+//scrivere un porgramma Java per separare i numeri pari e dispari di un dato array di numeri interi.
+//Mettere prima tutti i numeri pari e poi i numeri dispari
+public class main {
+
+    public static void main(String[] args) {
+        int[] array = { 3, 4, 7, 10, 30, 37, 5 };
+
+        int[] array2 = new int[7]; // prima cosa da fare è creare un nuovo array per inserire i numeri
+
+        // ! per prendere i numeri pari
+        int posPari = 0; // nuova variabile per inserire l'indice ed utilizzarlo poi per inserirlo
+                         // nell'array nuovo
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] % 2 == 0) {
+                array2[posPari] = array[i]; // al posto inserito aggiungi l'elemento, in qujesto caso si parte da 0 al
+                                            // posto zero inserisci l'elemento ossia il numero pari
+                posPari++; // incrementiamo la cella per dire che il posto successivo è libero per inserire
+                           // il prossimo numero pari
+            }
+        }
+
+        // ! per prendere i numeri dispari
+        int posDispari = posPari; // la posizione dispari non deve partire da 0 ma dall aposizione pari perchè
+                                  // come dice la traccia prima i pari e poi i dispari e quindi devono seguire
+                                  // l'indice dato dai pari
+        for (int i = 0; i < array2.length; i++) {
+            if (array[i] % 2 == 1) {
+                array2[posDispari] = array[i];
+                posDispari++;
+            }
+        }
+
+        for (int i = 0; i < array2.length; i++) {
+            System.out.println(array2[i]);
+        }
+
+    }
+}
